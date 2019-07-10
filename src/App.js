@@ -5,6 +5,7 @@ import SideBar from "react-sidebar";
 import { Card } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel'
 import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Navbar'
 
 
 import Autocomplete from 'react-google-autocomplete';
@@ -37,11 +38,12 @@ class App extends Component {
   getCityId(url){
     url = document.querySelector('.city').id;
     console.log("testhide",this.state.hide);
-    this.setState({hide: !this.state.hide});
+    this.setState({hide: "true"});
+    console.log("testhide",this.state.hide);
     this.setState({hide1: !this.state.hide1});
     this.setState({hide2: this.state.hide2});
     this.setState({hide3: !this.state.hide3});
-    this.setState({hide4: this.state.hide4});
+    this.setState({hide4: !this.state.hide4});
     this.fetchFirst(url);
   }
   fetchFirst(url) {
@@ -203,6 +205,7 @@ class App extends Component {
     console.log("rendercardsfilter",hits);
         let data = this.state.posts;
         this.setState({hide: this.state.hide});
+      console.log("testhide",this.state.hide);
         this.setState({hide1: this.state.hide1});
         this.setState({hide2: this.state.hide2});
         this.setState({hide3: this.state.hide3});
@@ -261,7 +264,8 @@ class App extends Component {
     let { isLoading } = this.state;
     let reviews_count =[],photos=[],votes=[],rating=[],name=[],address=[],cards=[],res_id=[],images=[],city_id=[],username=[];
     console.log(hits.location.city_id,"hitshoteldetails");
-    this.setState({hide: "false"});
+    this.setState({hide: this.state.hide});
+    console.log("testhide",this.state.hide);
     this.setState({hide2: !this.state.hide2});
     this.setState({hide3: this.state.hide3});
     this.setState({hide4: !this.state.hide4});
@@ -319,7 +323,7 @@ this.setState({
     console.log("hits location_id",hits.location.city_id);
     this.getCategories(hits.location.city_id);
     let data = this.state.posts;
-    this.setState({hide: "true"});
+    this.setState({hide: !this.state.hide});
     this.setState({hide1: !this.state.hide1});
     this.setState({hide2: !this.state.hide2});
     this.setState({hide3: !this.state.hide3});
@@ -436,10 +440,12 @@ this.setState({
             />
             <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
             <Navbar expand="lg" variant="light" bg="#6c757d" fixed="top">
-              <img src="https://pbs.twimg.com/profile_images/907183349474639872/zaG8GT03.jpg"  height="50px"  className="navbar-brand"/>
-              <div className={'hide4-' + !this.state.hide4}>
-                <Button variant="info"  onClick={this.getCityId.bind(this)}>Back</Button>
-              </div>
+
+              <Navbar.Collapse>
+                <img src="https://pbs.twimg.com/profile_images/907183349474639872/zaG8GT03.jpg"  height="50px"  className="navbar-brand"/>
+                <Nav pullRight>
+                </Nav>
+              </Navbar.Collapse>
             </Navbar>
             {/*<nav className="navbar navbar-expand-sm bg-light navbar-light">
               <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Furlenco.jpg"  height="50px"  className="navbar-brand"/>
@@ -520,7 +526,11 @@ this.setState({
               }
             </Carousel>
           </div>
-
+          <div className="container">
+          <div className={'hide4-' + !this.state.hide4}>
+            <Button variant="info" id="back" onClick={this.getCityId.bind(this)}>Back</Button>
+          </div>
+          </div>
           <div className="col-auto">
             {this.state.data}
           </div>
