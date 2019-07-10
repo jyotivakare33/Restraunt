@@ -34,11 +34,20 @@ class App extends Component {
       count : this.state.posts
     });
   }
-
+  getCityId(url){
+    url = document.querySelector('.city').id;
+    console.log("testhide",this.state.hide);
+    this.setState({hide: !this.state.hide});
+    this.setState({hide1: !this.state.hide1});
+    this.setState({hide2: this.state.hide2});
+    this.setState({hide3: !this.state.hide3});
+    this.setState({hide4: this.state.hide4});
+    this.fetchFirst(url);
+  }
   fetchFirst(url) {
     //console.log(url.currentTarget.id,"value");
     url = document.querySelector('.maindiv').id;
-    //console.log("test",url);
+    console.log("test",url);
     if (url) {
       fetch('https://developers.zomato.com/api/v2.1/location_details?entity_id=' + url + '&entity_type=zone', {
         method: "POST",
@@ -74,7 +83,8 @@ class App extends Component {
         this.renderCards(response)
       })
     }
-  }fetchFirst4(url) {
+  }
+  fetchFirst4(url) {
    // console.log(url.currentTarget.id,"value");
    url = document.querySelector('.maindiv4').id;
     //console.log("test",url);
@@ -195,8 +205,9 @@ class App extends Component {
         this.setState({hide: this.state.hide});
         this.setState({hide1: this.state.hide1});
         this.setState({hide2: this.state.hide2});
+        this.setState({hide3: this.state.hide3});
         let reviews_count =[],photos=[],votes=[],rating=[],name=[],address=[],cards=[],res_id=[];
-       // console.log(hits,"hits");
+       console.log(hits,"hitsdetails");
         // //console.log(reviews_count);
         Object.entries(hits.restaurants).map(([make, type]) => {
            // console.log(type,"rendercardsfilter");
@@ -216,7 +227,7 @@ class App extends Component {
                     <div className="lib-panel">
                       <div className="row box-shadow" id="content-description">
                         <div className="col-md-6">
-                          <p className="card-text top-left fa fa-star">{rating}</p>
+                          <p className="card-text top-left fa fa-star rating">{rating}</p>
                           <img className="lib-img-show" id="description-images" src={photos}/>
                         </div>
                         <div className="col-md-6" >
@@ -225,9 +236,9 @@ class App extends Component {
                             <div className="lib-header-seperator"></div>
                           </div>
                           <div className="lib-row lib-desc" >
-                            <p className="card-text fa fa-map-marker">{address}</p><br/>
-                            <p className="card-text fa fa-star">{rating}({votes})</p>
-                            <p className="card-text">{reviews_count}</p>
+                            <p className="card-text fa fa-map-marker">   {address} </p><br/>
+                            <p className="card-text fa fa-thumbs-o-up"> ({votes}) </p><br/>
+                            <p className="card-text fa fa-user-circle-o"> {reviews_count} </p>
                           </div>
                         </div>
                       </div>
@@ -248,27 +259,33 @@ class App extends Component {
   hotelDetails(hits) {
     let data = this.state.posts;
     let { isLoading } = this.state;
-    let reviews_count =[],photos=[],votes=[],rating=[],name=[],address=[],cards=[],res_id=[],images=[];
-    //console.log(hits,"hits");
-    this.setState({hide: !this.state.hide});
+    let reviews_count =[],photos=[],votes=[],rating=[],name=[],address=[],cards=[],res_id=[],images=[],city_id=[],username=[];
+    console.log(hits.location.city_id,"hitshoteldetails");
+    this.setState({hide: "false"});
     this.setState({hide2: !this.state.hide2});
+    this.setState({hide3: this.state.hide3});
+    this.setState({hide4: !this.state.hide4});
     // //console.log(reviews_count);
     Object.entries(hits.all_reviews.reviews).map(([make, type]) => {
       res_id = type.rating_text;
+      city_id = hits.location.city_id;
       photos = hits.featured_image;
-      //console.log(type,"photos");
+
       Object.entries(type).map(([make, restruant]) => {
         reviews_count = restruant.review_text;
+        console.log(restruant,"photosusers");
         votes = restruant.user.profile_image;
-        cards.push(<div className="container" id="review-conatiner"><div className="tab-content box-shadow">
+        username = restruant.user.name;
+        cards.push(<div className="container" id="review-conatiner"><div className="tab-content box-shadow" style={{backgroundColor: "white"}}>
           <div className="tab-pane active" id="comments-logout">
             <ul className="media-list">
               <li className="media">
                 <a className="pull-left" href="#"/>
-                <img className="media-object img-circle" src={votes} alt="profile"/>
+                <img className="media-object img-circle" id="profile-image" src={votes} alt="profile"/>
                 <div className="media-body">
-                  <div className="well well-lg">
-                    <h4 className="media-heading reviews">User Reviews</h4>
+                  <div className="well well-lg city" id={city_id}>
+                    <h4 className="media-heading reviews" >{username}</h4>
+                    <div className="lib-header-seperator"></div>
                     <p className="media-comment">
                       {reviews_count}
                     </p>
@@ -302,9 +319,11 @@ this.setState({
     console.log("hits location_id",hits.location.city_id);
     this.getCategories(hits.location.city_id);
     let data = this.state.posts;
-    this.setState({hide: !this.state.hide});
+    this.setState({hide: "true"});
     this.setState({hide1: !this.state.hide1});
     this.setState({hide2: !this.state.hide2});
+    this.setState({hide3: !this.state.hide3});
+    this.setState({hide4: this.state.hide4});
     let reviews_count =[],photos=[],votes=[],rating=[],name=[],address=[],cards=[],res_id=[];
     //console.log(hits,"hits");
     // //console.log(reviews_count);
@@ -325,7 +344,7 @@ this.setState({
               <div className="lib-panel">
                 <div className="row box-shadow" id="content-description">
                   <div className="col-md-6">
-                    <p className="card-text top-left fa fa-star">{rating}</p>
+                    <p className="card-text top-left fa fa-star rating">{rating}</p>
                     <img className="lib-img-show" id="description-images" src={photos}/>
                   </div>
                   <div className="col-md-6" >
@@ -334,9 +353,9 @@ this.setState({
                       <div className="lib-header-seperator"></div>
                     </div>
                     <div className="lib-row lib-desc" >
-                      <p className="card-text fa fa-map-marker">Address</p>{address}<br/>
-                      <p className="card-text fa fa-star">{rating}({votes})</p>
-                      <p className="card-text">{reviews_count}</p>
+                      <p className="card-text fa fa-map-marker">   {address} </p><br/>
+                      <p className="card-text fa fa-thumbs-o-up"> ({votes}) </p><br/>
+                      <p className="card-text fa fa-user-circle-o"> {reviews_count} </p>
                     </div>
                   </div>
                 </div>
@@ -383,7 +402,6 @@ this.setState({
      // console.log(collection_id, "collection_id");
       navbar.push( <div className="col" >
           <div className="lib-row lib-desc">
-
               <a className="category-name" href="#" onClick={this.categoryfilter.bind(this)} data-mode={collection_id} id={collection_id}>{title}</a><br/>
           </div>
       </div>)
@@ -396,6 +414,7 @@ this.setState({
 
   render() {
     return (
+        <div className={'hide3-' + this.state.hide3} >
         <div className="App" >
           <link
               rel="stylesheet"
@@ -416,9 +435,11 @@ this.setState({
                 crossOrigin
             />
             <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
-            <Navbar expand="lg" variant="light" bg="light" fixed="top">
-              <Navbar.Brand href="#" src="https://upload.wikimedia.org/wikipedia/commons/8/81/Furlenco.jpg"></Navbar.Brand>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Furlenco.jpg"  height="50px"  className="navbar-brand"/>
+            <Navbar expand="lg" variant="light" bg="#6c757d" fixed="top">
+              <img src="https://pbs.twimg.com/profile_images/907183349474639872/zaG8GT03.jpg"  height="50px"  className="navbar-brand"/>
+              <div className={'hide4-' + !this.state.hide4}>
+                <Button variant="info"  onClick={this.getCityId.bind(this)}>Back</Button>
+              </div>
             </Navbar>
             {/*<nav className="navbar navbar-expand-sm bg-light navbar-light">
               <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Furlenco.jpg"  height="50px"  className="navbar-brand"/>
@@ -426,7 +447,7 @@ this.setState({
             </nav>*/}
             <div className={'hide2-' + !this.state.hide2}>
               <div className="sidenav">
-                <i className="filter rgba-mdb-color-strong fa fa-filter" aria-hidden="true"> Filters</i>
+                <p className="filter rgba-mdb-color-strong" id="filter-text" aria-hidden="true"><span className="fa fa-line-chart"></span>  Top Picks</p>
                 {this.state.sidebartitle}
               </div>
             </div>
@@ -488,8 +509,8 @@ this.setState({
           </div>
           {/*<Button className="maindiv" onClick={this.fetchFirst.bind(this)} id="2500">Bangalore</Button>
           <Button className="maindiv" onClick={this.fetchFirst.bind(this)} id="3" >mumbai</Button>*/}
-          <div className={'hide-' + this.state.hide}>
-            <Carousel autoPlay infiniteLoop='true'>
+          <div className={'hide-' + !this.state.hide}>
+            <Carousel autoPlay infiniteLoop='true' >
               {
                 this.state.imageSlides.map( image => {
                   return <div>
@@ -498,11 +519,14 @@ this.setState({
                 })
               }
             </Carousel>
-            <div className="col-auto">
-                {this.state.data}
-            </div>
-            </div>
           </div>
+
+          <div className="col-auto">
+            {this.state.data}
+          </div>
+
+
+        </div></div>
     );
   }
 }

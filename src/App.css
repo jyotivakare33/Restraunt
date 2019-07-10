@@ -12,7 +12,9 @@
 }
 #backgroundImage {
   background-image: url("https://images.pexels.com/photos/2074130/pexels-photo-2074130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  opacity:0.5;
+  height:40em;
+  z-index:-1 !important;
+  opacity: 0.7;
 }
 
 .App-header {
@@ -42,6 +44,12 @@ a:visited {
   display: none;
 }.hide2-true  {
   display: none;
+}.hide3-true  {
+    background-image: none !important;
+}.hide4-true  {
+     display: none;
+}.hide-true  {
+     display: none;
 }
 /* mouse over link */
 a:hover {
@@ -61,6 +69,10 @@ a:hover {
 #pills-row{
   margin-left:8%;
   margin-top:3%;
+  z-index: 1 !important;
+}
+#pills:hover {
+  box-shadow: 0 0 50px rgba(33,33,33,.2);
 }
 #pills{
   margin-top: 8%;
@@ -69,8 +81,7 @@ a:hover {
   display: inline-block;
   height: 50px;
   border-radius: 47px;
-  opacity:1;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: darkgrey;
 }
 .card-img-top {
   width: 36% !important;
@@ -93,7 +104,7 @@ a:active {
 }
 .navbar {
   overflow: hidden;
-  background-color: #f8f9fa;
+  background-color: white;
   position: fixed;
   top: 0;
   width: 100%;
@@ -120,7 +131,7 @@ a:active {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #f8f9fa;
+  background-color: white;
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -275,6 +286,9 @@ a:active {
   top: -3px;
   right: 0;
 }
+#profile-image{
+  border-radius:50%;
+}
 .page-header { position: relative; }
 .reviews {
   font-weight: bold;
@@ -283,15 +297,31 @@ a:active {
   display: block;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   margin: 10px auto 20px;
+  border-bottom: 1px solid black;
 }
-.filter{
+#filter-text{
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   font-weight: bold;
-  font-size: 30px;
+  margin-top:15%;
+  margin-bottom:8%;
+  font-size: 18px;
+  margin-left:4%;
+  padding: 6px 8px 6px 16px;
 }
 .notes {
   color: #999;
   font-size: 12px;
+}
+.rating{
+  padding: 0.5em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ffdf00;
+  background: black;
+}
+body{
+  background-color: #e9ecef !important;
 }
 .media .media-object { max-width: 120px; }
 .media-body { position: relative; margin-left:3% ; font-size: 15px;
@@ -310,7 +340,7 @@ a:active {
   margin-left: -2px;
   margin-right: 2px;
 }
-.media-comment { margin-bottom: 20px; }
+.media-comment { margin-bottom: 20px; border-top:1px;text-align: justify }
 .media-replied { margin: 0 0 20px 50px; }
 .media-replied .media-heading { padding-left: 6px;  }
 
@@ -319,6 +349,7 @@ a:active {
   font-size: 12px;
   padding: 6px 15px;
   border-radius: 20px;
+  float: right !important;
 }
 .btn-circle span { padding-right: 6px; }
 .embed-responsive { margin-bottom: 20px; }
@@ -326,10 +357,7 @@ a:active {
   padding: 50px 15px;
   border: 1px solid #ddd;
   border-top: 0;
-  width:70%;
   margin-top: 3%;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
 }
 .custom-input-file {
   overflow: hidden;
@@ -364,5 +392,8 @@ input[type="file"]{
   background-color: rgba(0,0,0,.3);
   border-radius: 50px;
   cursor: pointer;
+}
+.btn btn-info{
+
 }
 .custom-input-file:hover .uploadPhoto { display: block; }
