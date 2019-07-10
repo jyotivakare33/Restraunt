@@ -1,28 +1,154 @@
-.App {
-  text-align: center;
-}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.fa-fa-star{
+  padding: 4px 8px;
+  height: 28px;
+  font-weight: 600;
+  width: 40px;
+}
+#backgroundImage {
+  background-image: url("https://images.pexels.com/photos/2074130/pexels-photo-2074130.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  opacity:0.5;
 }
 
+.App-header {
+  min-height: 5vh;
+}
+#cardImage{
+    height: 50%;
+}
+#imageslides{
+    height: 100%;
+}
 .App-link {
   color: #61dafb;
 }
+#img {
+    width: 285px;
+}
+a:link {
+  color: red;
+}
 
+/* visited link */
+a:visited {
+  color: green;
+}
+.hide1-true  {
+  display: none;
+}.hide2-true  {
+  display: none;
+}
+/* mouse over link */
+a:hover {
+  color: blue;
+}
+.maindiv,.maindiv1,.maindiv2,.maindiv3,.maindiv4,.maindiv5{
+  padding:0px !important;
+  cursor: pointer !important;
+}
+#content-div{
+  margin: auto;
+  margin-left: 0;
+}
+#content{
+  margin-top: 10%;
+}
+#pills-row{
+  margin-left:8%;
+  margin-top:3%;
+}
+#pills{
+  margin-top: 8%;
+  width: 23%;
+  margin-right:9%;
+  display: inline-block;
+  height: 50px;
+  border-radius: 47px;
+  opacity:1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-img-top {
+  width: 36% !important;
+}
+.collapse-content .fa.fa-heart:hover {
+  color: #f44336 !important;
+}
+.collapse-content .fa.fa-share-alt:hover {
+  color: #0d47a1 !important;
+}
+/* selected link */
+a:active {
+  color: blue;
+}
+#description-images{
+  height:100%;
+}
+#content-description{
+  width:200% !important;
+}
+.navbar {
+  overflow: hidden;
+  background-color: #f8f9fa;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  background-color:green;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#hotels{
+  width: 29%;
+  margin-left: 22%;
+}
+.container{
+  margin-top: 5%;
+}
+.sidenav {
+  height: 115%;
+  width: 22%;
+  margin-top: 4%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: green;
+  display: block;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-weight: 400;
+}
+
+.sidenav a:hover {
+  color: blue;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -31,3 +157,212 @@
     transform: rotate(360deg);
   }
 }
+
+.lib-panel {
+  margin-bottom: 20Px;
+}
+.lib-panel img {
+  width: 100%;
+  background-color: transparent;
+}
+
+.lib-panel .row,
+.lib-panel .col-md-6 {
+  padding: 0;
+  background-color: #FFFFFF;
+}
+
+
+.lib-panel .lib-row {
+  padding: 0 20px 0 20px;
+}
+
+.lib-panel .lib-row.lib-header {
+  background-color: #FFFFFF;
+  font-size: 20px;
+  padding: 10px 20px 0 20px;
+}
+
+.lib-panel .lib-row.lib-header .lib-header-seperator {
+  height: 2px;
+  width: 26px;
+  background-color: #d9d9d9;
+  margin: 7px 0 7px 0;
+}
+
+.lib-panel .lib-row.lib-desc {
+  position: relative;
+  height: 100%;
+  display: block;
+  font-size: 13px;
+}
+.lib-panel .lib-row.lib-desc a{
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  left: 20px;
+}
+
+.row-margin-bottom {
+  margin-bottom: 20px;
+}
+
+.box-shadow {
+  -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+}
+#image-card{
+  padding: 2rem 0rem;
+  height: 30%;
+  width: 30%;
+}
+#description-images-details{
+  height:40%;
+  width:40%;
+}
+.no-padding {
+  padding: 0;
+}
+#image-slides{
+  height:34em !important;
+  width:100%;
+ padding:1%;
+}
+.read-more-state {
+  display: none;
+}
+.read-more-target {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  transition: .25s ease;
+}
+.read-more-state:checked ~ .read-more-wrap .read-more-target {
+  opacity: 1;
+  font-size: inherit;
+  max-height: 999em;
+}
+.read-more-state ~ .read-more-trigger:before {
+  content: 'Show more';
+}
+.read-more-state:checked ~ .read-more-trigger:before {
+  content: 'Show less';
+}
+#review-conatiner
+{margin-left: 66px;
+  padding-left: 15px;
+  margin-right: 66px
+}
+.read-more-trigger {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 .5em;
+  color: #666;
+  font-size: .9em;
+  line-height: 2;
+  border: 1px solid #ddd;
+  border-radius: .25em;
+}
+/*
+    Image credits:
+    uifaces.com (http://uifaces.com/authorized)
+*/
+
+#login { display: none; }
+.login,
+.logout {
+  position: absolute;
+  top: -3px;
+  right: 0;
+}
+.page-header { position: relative; }
+.reviews {
+  font-weight: bold;
+  font-size: 20px;
+  color: green;
+  display: block;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  margin: 10px auto 20px;
+}
+.filter{
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-weight: bold;
+  font-size: 30px;
+}
+.notes {
+  color: #999;
+  font-size: 12px;
+}
+.media .media-object { max-width: 120px; }
+.media-body { position: relative; margin-left:3% ; font-size: 15px;
+  display: block;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-weight: 400}
+.media-date {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
+.media-date li { padding: 0; }
+.media-date li:first-child:before { content: ''; }
+.media-date li:before {
+  content: '.';
+  margin-left: -2px;
+  margin-right: 2px;
+}
+.media-comment { margin-bottom: 20px; }
+.media-replied { margin: 0 0 20px 50px; }
+.media-replied .media-heading { padding-left: 6px;  }
+
+.btn-circle {
+  font-weight: bold;
+  font-size: 12px;
+  padding: 6px 15px;
+  border-radius: 20px;
+}
+.btn-circle span { padding-right: 6px; }
+.embed-responsive { margin-bottom: 20px; }
+.tab-content {
+  padding: 50px 15px;
+  border: 1px solid #ddd;
+  border-top: 0;
+  width:70%;
+  margin-top: 3%;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.custom-input-file {
+  overflow: hidden;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: #eee url('https://s3.amazonaws.com/uifaces/faces/twitter/walterstephanie/128.jpg');
+  background-size: 120px;
+  border-radius: 120px;
+}
+input[type="file"]{
+  z-index: 999;
+  line-height: 0;
+  font-size: 0;
+  position: absolute;
+  opacity: 0;
+  filter: alpha(opacity = 0);-ms-filter: "alpha(opacity=0)";
+  margin: 0;
+  padding:0;
+  left:0;
+}
+.uploadPhoto {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  display: none;
+  width: 50%;
+  height: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 60px;
+  background-color: rgba(0,0,0,.3);
+  border-radius: 50px;
+  cursor: pointer;
+}
+.custom-input-file:hover .uploadPhoto { display: block; }
