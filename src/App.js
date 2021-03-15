@@ -278,7 +278,7 @@ class App extends Component {
       Object.entries(type).map(([make, restruant]) => {
         reviews_count = restruant.review_text;
         console.log(restruant,"photosusers");
-        votes = restruant.user.profile_image;
+        votes = 1;
         username = restruant.user.name;
         cards.push(<div className="container" id="review-conatiner"><div className="tab-content box-shadow" style={{backgroundColor: "white"}}>
           <div className="tab-pane active" id="comments-logout">
