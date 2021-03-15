@@ -301,13 +301,7 @@ class App extends Component {
         </div></div>);
       })
     })
-    Object.entries(hits.photos).map(([make, type]) => {
-      //console.log(type.photo.url,"imagesphoto");
-      photos = type.photo.url;
-      images.push(<>
-            <img id="image-slides"/>
-      </>);
-    })
+   
 
 this.setState({
       data: cards,
