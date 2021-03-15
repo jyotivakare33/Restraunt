@@ -279,7 +279,7 @@ class App extends Component {
         reviews_count = restruant.review_text;
         console.log(restruant,"photosusers");
         votes = 1;
-        username = restruant.user.name;
+        username = 'Jyoti';
         cards.push(<div className="container" id="review-conatiner"><div className="tab-content box-shadow" style={{backgroundColor: "white"}}>
           <div className="tab-pane active" id="comments-logout">
             <ul className="media-list">
