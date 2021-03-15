@@ -305,7 +305,7 @@ class App extends Component {
       //console.log(type.photo.url,"imagesphoto");
       photos = type.photo.url;
       images.push(<>
-            <img id="image-slides" src={photos}/>
+            <img id="image-slides"/>
       </>);
     })
 
