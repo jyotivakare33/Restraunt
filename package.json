@@ -15,7 +15,7 @@
     "react-rating": "^1.7.2",
     "react-ratings": "^1.0.1",
     "react-read-more-less": "^0.1.6",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-sidebar": "^3.0.2"
   },
   "scripts": {
